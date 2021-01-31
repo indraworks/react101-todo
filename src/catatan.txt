@@ -1,0 +1,13 @@
+tentukan dulu statenya apa aja
+terus tentunkan method apa yg akan handle state trsbut
+dini state yg brubah adalah :items
+state  =item  
+berupa apa data item bruba object array trdiir dari id,title,
+
+
+method pengubah state:
+handleChange ==>utk e fotm 
+handleSumbumi ->utk submit form ubdah final state
+clear list utk lear list 
+habdle delete utk dlete list 
+hable edit utk edit list 
