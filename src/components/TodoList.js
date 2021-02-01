@@ -2,34 +2,8 @@ import React, { Component } from 'react';
 import TodoItem from './TodoItem';
 export default class TodoList extends Component {
   render() {
-    const { items, handleDelete, handleEdit } = this.props; //kita desctrut pros dari parent
+    const { items, clearList, handleDelete, handleEdit } = this.props; //kita desctrut pros dari parent
     return (
-      // <div className='container'>
-      //   <div className='card card-body mt-2'>
-      //     <ul className='list-group'>
-      //       <h3 className='text-center text-capitalize mt-2'>todo item</h3>
-      //       {items.map(
-      //         (item) => {
-      //           return (
-      //             <TodoItem
-      //               key={item.id}
-      //               title={item.title}
-      //               handleDelete={() => handleDelete(item.id)}
-      //               handleEdit={() => handleEdit(item.id)}
-      //             />
-      //           );
-      //         }
-      //         // <h4 className='list-group-item' key={item.id}>
-      //         //   {item.title}
-      //         // </h4>
-      //       )}
-      //     </ul>
-      //     <button className='bg-success text-light btn btn-block mt-5'>
-      //       Clear Task
-      //     </button>
-      //   </div>
-      // </div>
-
       <ul className='list-group'>
         <h3 className='text-center text-capitalize'>todo list</h3>
         {items.map((item) => {
@@ -42,7 +16,15 @@ export default class TodoList extends Component {
             />
           );
         })}
-        <button>Clear Tasks</button>
+        <button
+          type='button'
+          className='btn btn-danger 
+        btn-block text-uppercase mt-5'
+          onClick={clearList}
+        >
+          {' '}
+          Clear Tasks
+        </button>
       </ul>
     );
   }

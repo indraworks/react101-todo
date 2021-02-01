@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 
 export class App extends Component {
   //buat statenya
-  state = { items: [], id: uuidv4(), item: '', editItem: 'false' };
+  state = { items: [], id: uuidv4(), item: ' ', editItem: false };
   //handleChange utk prubahan input
   handleChange = (e) => {
     this.setState({
@@ -28,11 +28,11 @@ export class App extends Component {
     this.setState(
       {
         items: updItems,
-        item: '',
+        item: ' ',
         uuid: uuidv4(),
         editItem: 'false',
       },
-      console.log(this.state)
+      console.log(this.state.item)
     );
   };
 
@@ -74,6 +74,7 @@ export class App extends Component {
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
               editItem={this.state.editItem}
+              placeholder='add task'
             />
 
             <TodoList
