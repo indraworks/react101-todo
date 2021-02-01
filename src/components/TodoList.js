@@ -2,30 +2,48 @@ import React, { Component } from 'react';
 import TodoItem from './TodoItem';
 export default class TodoList extends Component {
   render() {
-    const { items, handleDelete, handleEdit, clearList } = this.props; //kita desctrut pros dari parent
+    const { items, handleDelete, handleEdit } = this.props; //kita desctrut pros dari parent
     return (
-      <div className='container'>
-        <div className='card card-body mt-2'>
-          <ul className='list-group'>
-            <h3 className='text-center text-capitalize mt-2'>todo item</h3>
-            {items.map((item) => (
-              // <h4 className='list-group-item' key={item.id}>
-              //   {item.title}
-              // </h4>
-              <TodoItem
-                key={item.id}
-                title={item.title}
-                handleDelete={() => this.handleDelete(item.id)}
-                handleEdit={() => this.handleEdit(item.id)}
-                clearList={this.clearList}
-              />
-            ))}
-          </ul>
-          <button className='bg-success text-light btn btn-block mt-5'>
-            Clear Task
-          </button>
-        </div>
-      </div>
+      // <div className='container'>
+      //   <div className='card card-body mt-2'>
+      //     <ul className='list-group'>
+      //       <h3 className='text-center text-capitalize mt-2'>todo item</h3>
+      //       {items.map(
+      //         (item) => {
+      //           return (
+      //             <TodoItem
+      //               key={item.id}
+      //               title={item.title}
+      //               handleDelete={() => handleDelete(item.id)}
+      //               handleEdit={() => handleEdit(item.id)}
+      //             />
+      //           );
+      //         }
+      //         // <h4 className='list-group-item' key={item.id}>
+      //         //   {item.title}
+      //         // </h4>
+      //       )}
+      //     </ul>
+      //     <button className='bg-success text-light btn btn-block mt-5'>
+      //       Clear Task
+      //     </button>
+      //   </div>
+      // </div>
+
+      <ul className='list-group'>
+        <h3 className='text-center text-capitalize'>todo list</h3>
+        {items.map((item) => {
+          return (
+            <TodoItem
+              key={item.id}
+              title={item.title}
+              handleDelete={() => handleDelete(item.id)}
+              handleEdit={() => handleEdit(item.id)}
+            />
+          );
+        })}
+        <button>Clear Tasks</button>
+      </ul>
     );
   }
 }
@@ -49,5 +67,21 @@ item.id mana yg didelete /atau diedit
               />
 
 Keterangan pakai callback functionya karena manggil function yg ada di parent atas
+
+*/
+
+/*
+CARA LAIN ya utk item.id di referensian di TodoItem /anakpaling bawah 
+
+ TIDAK BISA 2 LAYER SAJA KALAU UTK Class Component kit agunakan hooks nanti habis ini 
+
+
+*/
+
+/*
+MENGUBAH TAMPILAAN Button denga state 
+kit aliaha t padai saat edit item  = true utk itu button harus berganti agar bisa diketahui
+kita berasa pada edit 
+
 
 */

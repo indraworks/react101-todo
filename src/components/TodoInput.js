@@ -5,31 +5,33 @@ class TodoInput extends Component {
     //kita destructing dulu props yg masuk sini
     const { item, handleChange, handleSubmit, editItem } = this.props;
     return (
-      <div className='container'>
-        <div className='card card-body'>
-          <form onSubmit={handleSubmit}>
-            <div className='input-group'>
-              <div className='input-group-prepend'>
-                <div className='input-group-text bg-success text-white'>
-                  <i className='fas fa-book fa-1x'></i>
-                </div>
+      <div className='card card-body'>
+        <form onSubmit={handleSubmit}>
+          <div className='input-group'>
+            <div className='input-group-prepend'>
+              <div className='input-group-text bg-success text-white'>
+                <i className='fas fa-book fa-1x'></i>
               </div>
-              <input
-                type='text'
-                className='form-control text-capitalize'
-                placeholder='add todo item'
-                value={item}
-                onChange={handleChange}
-              />
             </div>
-            <button
-              type='submit'
-              className='btn btn-block bg-success text-light mt-3'
-            >
-              Enter Task
-            </button>
-          </form>
-        </div>
+            <input
+              type='text'
+              className='form-control text-capitalize'
+              placeholder='add todo item'
+              value={item}
+              onChange={handleChange}
+            />
+          </div>
+          <button
+            type='submit'
+            className={
+              editItem
+                ? 'btn btn-block bg-success text-light mt-3'
+                : 'btn btn-block bg-danger text-light mt-3'
+            }
+          >
+            {editItem ? 'Edit Task' : 'Enter Task(GO)'}
+          </button>
+        </form>
       </div>
     );
   }

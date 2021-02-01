@@ -4,7 +4,7 @@ export default class TodoItem extends Component {
   //dianak yg no3  dipassing method yg di app.js jadi props disini
 
   render() {
-    const { title, handleEdit, handleDelete } = this.props;
+    const { id, title, handleEdit, handleDelete } = this.props;
     return (
       <div className='list-group-item text-capitalize d-flex justify-content-between my-2'>
         <h6>{title}</h6>
